@@ -1,7 +1,5 @@
 require 'spec_helper'
-
 require_relative '../lib/file_encoding_detector.rb'
-require 'ostruct'
 
 describe FileEncodingDetector do
   let(:encodings) { ['ISO-8859-15'] }

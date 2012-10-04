@@ -1,4 +1,3 @@
-
 class FileEncodingDetector
   def self.encodings
     Encoding.list.collect do |encoding|
@@ -11,19 +10,19 @@ class FileEncodingDetector
   end
 
   def detect
-    encodings = []
-    FileEncodingDetector.encodings.each do |encoding|
+    encodings = FileEncodingDetector.encodings.collect do |encoding|
       begin
         File.open(@filename, :external_encoding =>  encoding, :internal_encoding =>  'UTF-8', ) do |file|
           file.readlines
         end
-        encodings << encoding
+        encoding
       rescue Encoding::InvalidByteSequenceError
       rescue Encoding::ConverterNotFoundError
       rescue Encoding::UndefinedConversionError
       end
     end
-    encodings
+
+    encodings.compact
   end
 end
 
