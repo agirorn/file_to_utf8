@@ -2,7 +2,7 @@
 File To UTF-8
 =============
 
-From time to time you mite get a CSV/TEST file from someone that you have
+From time to time you mite get a CSV/TEXT file from someone that you have
 to work with in your ruby project and when you start to work withe it you
 notice you notice that it you are just getting some garbage out.
 And then you remember thatguy is using Windows and his PC is configured for
