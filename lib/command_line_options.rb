@@ -1,4 +1,3 @@
-
 require 'optparse'
 
 class CommandLineOptions
@@ -11,12 +10,22 @@ class CommandLineOptions
     parse!
   end
 
+  def encode?
+    filename and to_filename and from_encoding
+  end
+
 private
+
   def parse!
+    set_help_on_empty_params
     add_banner
     add_detect
     option_parser.parse!(@argv)
     grap_mandatory_params
+  end
+
+  def set_help_on_empty_params
+    @argv << '--help' if @argv.length == 0
   end
 
   def grap_mandatory_params

@@ -1,4 +1,5 @@
 class FileEncodingDetector
+
   def self.encodings
     Encoding.list.collect do |encoding|
       encoding.name
@@ -24,5 +25,6 @@ class FileEncodingDetector
 
     encodings.compact
   end
+
 end
 
