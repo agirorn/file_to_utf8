@@ -8,8 +8,10 @@ class CommandLineOptions
 
   def initialize(argv)
     @argv = argv
+    parse!
   end
 
+private
   def parse!
     add_banner
     add_detect
@@ -17,7 +19,6 @@ class CommandLineOptions
     grap_mandatory_params
   end
 
-private
   def grap_mandatory_params
     @filename = @argv.shift
     @to_filename = @argv.shift
@@ -29,7 +30,7 @@ private
   end
 
   def add_banner
-    option_parser.banner = "Usage: example.rb [options] file [new_file]"
+    option_parser.banner = "Usage: file_to_utf8.rb [options] file new_file encoding"
   end
 
   def add_detect
